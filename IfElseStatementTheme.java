@@ -75,7 +75,6 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("В числах все разряды разные");
         }
-        
 
         System.out.println("\n\n5. Определение символа по его коду\n");
         char character = '\u0057';
@@ -131,7 +130,6 @@ public class IfElseStatementTheme {
         System.out.println(historyGrade + " - история | " + programmingGrade + " - программирование");
         System.out.println((historyGrade + programmingGrade) / 2 + " - средний балл");
         System.out.println((historyPercent + programmingPercent) / 2 + "% - средний процент");
-
 
         System.out.println("\n\n8. Расчет прибыли за год\n");
         int rent = 5_000;
