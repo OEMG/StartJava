@@ -88,7 +88,7 @@ public class VariablesTheme {
         System.out.println("   " + slash + "  " + backslash);
         System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + 
                 backslash);
-        System.out.println(" "+ slash + "      " + backslash );
+        System.out.println(" "+ slash + "      " + backslash);
         System.out.println("" + slash + underscore + underscore + underscore + underscore + 
                 slash + backslash + underscore + underscore + backslash);
 
