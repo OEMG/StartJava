@@ -1,5 +1,5 @@
 public class VariablesTheme {
-    
+
     public static void main(String[] args) {
         System.out.println("1. Вывод характеристик компьютера\n");
         byte cpuGeneration = 13;
@@ -49,8 +49,7 @@ public class VariablesTheme {
         int num2 = 5;
         System.out.println("\nС помощью третьей переменной:\n");
         System.out.println("Исходные значения: num1 = " + num1 + "; num2 = " + num2);
-        int temp;
-        temp = num1;
+        int temp = num1;
         num1 = num2;
         num2 = temp;
         System.out.println("Новые значения: num1 = " + num1 + "; num2 = " + num2);
@@ -63,21 +62,21 @@ public class VariablesTheme {
         System.out.println("\nС помощью побитовой операции ^ :\n");
         System.out.println("Исходные значения: num1 = " + num1 + "; num2 = " + num2);
         num1 ^= num2;
-        num2 = num1 ^ num2;
+        num2 ^= num1;
         num1 ^= num2;
         System.out.println("Новые значения: num1 = " + num1 + "; num2 = " + num2);
 
         System.out.println("\n\n6. Вывод символов и их кодов\n");
-        char char1 = '#';
-        char char2 = '&';
-        char char3 = '@';
-        char char4 = '^';
-        char char5 = '_';
-        System.out.println((int) char1 + " - " + char1);
-        System.out.println((int) char2 + " - " + char2);
-        System.out.println((int) char3 + " - " + char3);
-        System.out.println((int) char4 + " - " + char4);
-        System.out.println((int) char5 + " - " + char5);
+        char numberSign = '#';
+        char ampersand = '&';
+        char atSign = '@';
+        char caret = '^';
+        char underline = '_';
+        System.out.println((int) numberSign + " - " + numberSign);
+        System.out.println((int) ampersand + " - " + ampersand);
+        System.out.println((int) atSign + " - " + atSign);
+        System.out.println((int) caret + " - " + caret);
+        System.out.println((int) underline + " - " + underline);
 
         System.out.println("\n\n7. Вывод в консоль ASCII-арт Дюка\n");
         char slash = '/';
@@ -85,29 +84,29 @@ public class VariablesTheme {
         char underscore = '_';
         char leftParenthesis = '(';
         char rightParenthesis = ')';
-        System.out.println("    " + slash + backslash + "     ");
-        System.out.println("   " + slash + "  " + backslash + "     ");
+        System.out.println("    " + slash + backslash);
+        System.out.println("   " + slash + "  " + backslash);
         System.out.println("  " + slash + underscore + leftParenthesis + " " + rightParenthesis + 
-                backslash + "   ");
-        System.out.println(" "+ slash + "      " + backslash + "  ");
+                backslash);
+        System.out.println(" "+ slash + "      " + backslash );
         System.out.println("" + slash + underscore + underscore + underscore + underscore + 
                 slash + backslash + underscore + underscore + backslash);
 
         System.out.println("\n\n8. Вывод количества сотен, десятков и единиц числа\n");
         int number = 123;
         int hundreds = number / 100;
-        int ten = number / 10 % 10;
-        int one = number % 10;
+        int tens = number / 10 % 10;
+        int ones = number % 10;
         System.out.println("Число " + number + " содержит:\n" + hundreds + " сотен\n" + 
-                ten + " десятков\n" + one + " единиц");
-        System.out.println("Сумма его цифр = " + (hundreds + ten + one));
-        System.out.println("Произведение = " + (hundreds * ten * one));
+                tens + " десятков\n" + ones + " единиц");
+        System.out.println("Сумма его цифр = " + (hundreds + tens + ones));
+        System.out.println("Произведение = " + (hundreds * tens * ones));
 
         System.out.println("\n\n9. Вывод времени\n");
         int numberSeconds = 86399;
         int hours = numberSeconds / 3600;
-        int minutes = (numberSeconds - hours * 3600) / 60;
-        int seconds = numberSeconds = minutes;
+        int minutes = numberSeconds % 3600 / 60;
+        int seconds = numberSeconds % 60;
         System.out.println(hours + ":" + minutes + ":" + seconds);
     }
 }
