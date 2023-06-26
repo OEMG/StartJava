@@ -44,17 +44,14 @@ public class IfElseStatementTheme {
         int number3 = 7;
         if (number3 != 0) {
             if (number3 % 2 == 0) {
-                if (number3 > 0) {
-                    System.out.println(number3 + " - задано положительное четное число");
-                } else {
-                    System.out.println(number3 + " - задано отрицательное четное число");
-                }
+                System.out.print(number3 + " - задано четное ");
             } else {
-                if (number3 > 0) {
-                    System.out.println(number3 + " - задано положительно нечетное число");
-                } else {
-                    System.out.println(number3 + " - задано отрицательное нечетное число");
-                }
+                System.out.print(number3 + " - задано нечетное ");
+            }
+            if (number3 > 0) {
+                System.out.println("положительное число");
+            } else {
+                System.out.println("отрицательное число");
             }
         } else {
             System.out.println(number3 + " - задано число ноль");
@@ -63,18 +60,18 @@ public class IfElseStatementTheme {
         System.out.println("\n\n4. Поиск одинаковых цифр в числах\n");
         int number4 = 123;
         int number5 = 183;
-        boolean isFirstDigitsEqual = number4 % 10 == number5 % 10;
-        boolean isSecondDigitsEqual = number4 % 100 / 10 == number5 % 100 / 10;
-        boolean isThirdDigitsEqual = number4 / 100 == number5 / 100;
+        boolean isEqualOnes = number4 % 10 == number5 % 10;
+        boolean isEqualTens = number4 % 100 / 10 == number5 % 100 / 10;
+        boolean isEqualHundreds = number4 / 100 == number5 / 100;
         System.out.println("Первое число = " + number4 + "\nВторое число = " + number5);
-        if (isFirstDigitsEqual || isSecondDigitsEqual || isThirdDigitsEqual) {
-            if (isFirstDigitsEqual) {
+        if (isEqualOnes || isEqualTens || isEqualHundreds) {
+            if (isEqualOnes) {
                 System.out.println("Цифры " + number4 % 10 + " в двух числах равны. Разряд 1");
             }
-            if (isSecondDigitsEqual){
+            if (isEqualTens){
                 System.out.println("Цифры " + number4 % 100 / 10 + " в двух числах равны. Разряд 2");
             }
-            if (isThirdDigitsEqual) {
+            if (isEqualHundreds) {
                 System.out.println("Цифры " + number4 / 100 + " в двух числах равны. Разряд 3");
             }
         } else {
@@ -141,28 +138,22 @@ public class IfElseStatementTheme {
 
         System.out.println("\n\n9. Подсчет количества банкнот\n");
         int money = 567;
-        int hundreds = 0;
-        int tens = 0;
-        int ones = 0;
-        if (money > 1100) {
-            System.out.println("В банкомате недостаточно банкнот. Введите сумму меньше.");
-        } else if (money > 0) {
-            if (money == 1100) {
-                hundreds = 10;
-                tens = 5;
-                ones = 50;
-            } else {
-                hundreds = money / 100;
-                if (money % 100 > 59) {
-                    tens = 5;
-                    ones = money % 100 - tens * 10;
-                } else {
-                    tens = money % 100 / 10;
-                    ones = money % 100 % 10;
-                }
-            }
-            System.out.println("Выдано банкнот:\n" + hundreds + " номиналом 100$\n" + tens + 
-            " номиналом 10$\n" + ones + " номиналом 1$\nВыдана сумма: " + money + "$");
+        int hundredsAtm = 10;
+        int tensAtm = 5;
+        int onesAtm = 50;
+        int amountMoney = hundredsAtm * 100 + tensAtm * 10 + onesAtm;
+        int hundredsGiven;
+        int tensGiven;
+        int onesGiven;
+        if (money <= amountMoney) {
+            hundredsGiven = money / 100 > hundredsAtm ? hundredsAtm : money / 100;
+            tensGiven = (money - hundredsGiven * 100) / 10 > tensAtm ? tensAtm :  money % 100 / 10;
+            onesGiven = money - hundredsGiven * 100 - tensGiven * 10;
+            System.out.println("Выдано банкнот:\n" + hundredsGiven + " номиналом 100$\n" + tensGiven +
+                    " номиналом 10$\n" + onesGiven + " номиналом 1$\nВыдана сумма: " + money + "$");
+        } else if (money > amountMoney) {
+            System.out.println("В банкомате недостаточно банкнот. " +
+                    "Введите сумму не более " + amountMoney);
         } else {
             System.out.println("Число должно быть положительным, попробуйте снова.");
         }
