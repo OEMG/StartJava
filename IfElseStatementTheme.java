@@ -137,7 +137,7 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n\n9. Подсчет количества банкнот\n");
-        int money = 567;
+        int money = -7;
         int hundredsAtm = 10;
         int tensAtm = 5;
         int onesAtm = 50;
@@ -145,7 +145,7 @@ public class IfElseStatementTheme {
         int hundredsGiven;
         int tensGiven;
         int onesGiven;
-        if (money <= amountMoney) {
+        if (money <= amountMoney && money > 0) {
             hundredsGiven = money / 100 > hundredsAtm ? hundredsAtm : money / 100;
             tensGiven = (money - hundredsGiven * 100) / 10 > tensAtm ? tensAtm :  money % 100 / 10;
             onesGiven = money - hundredsGiven * 100 - tensGiven * 10;
