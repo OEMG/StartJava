@@ -1,7 +1,10 @@
 # StartJava - Антон Гридин
 ## Домашние задания
-[Lesson 1](https://github.com/OEMG/StartJava/blob/main/VariablesTheme.java) - Переменные: примитивные типы данных
 
-[Lesson 1](https://github.com/OEMG/StartJava/blob/main/IfElseStatementTheme.java) - Ветвление: if-else
++ **Lesson_1**
 
-[Lesson 1](https://github.com/OEMG/StartJava/blob/main/CyclesTheme.java) - Циклы: for, while, do while
+  + [Переменные: примитивные типы данных](https://github.com/OEMG/StartJava/blob/main/VariablesTheme.java)
+
+  + [Ветвление: if-else](https://github.com/OEMG/StartJava/blob/main/IfElseStatementTheme.java) 
+
+  + [Циклы: for, while, do while](https://github.com/OEMG/StartJava/blob/main/CyclesTheme.java)

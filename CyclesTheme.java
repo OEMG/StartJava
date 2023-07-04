@@ -38,13 +38,15 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n3.Вывод реверсивного числа и суммы его цифр\n");
-        int number1 = 7856;
+        int number1 = 1234;
         int countDigits = 1;
         int multiplier = 1;
         int sumDigits = 0;
+        int calculation = 0;
         while (countDigits < 5) {
-            System.out.print(number1 % (multiplier * 10) / multiplier);
-            sumDigits += number1 % (multiplier * 10) / multiplier;
+            calculation = number1 % (multiplier * 10) / multiplier;
+            System.out.print(calculation);
+            sumDigits += calculation;
             multiplier *= 10;
             countDigits++;
         }
@@ -94,47 +96,33 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n6.Отображение фигур в консоли\n");
-        // квадрат
-        for (int i = 1; i < 51; i++) {
-            if (i % 10 != 0) {
-                System.out.print("*");
-            } else {
-                System.out.println("*");
-            }
-        }
-        //первый треугольник
         int line = 5;
+        for (int i = 0; i < 5; i++) {
+            System.out.println("**********");
+        }
+
         while(line > 0) {
             int column = line;
             while (column > 0) {
                 System.out.print("#");
                 column--;
             }
-            System.out.println("");
+            System.out.println();
             line--;
         }
-        //второй треугольник
-        int heightTriangle = 3;
-        int dollarsPerLine = 1;
-        int sptVar = 0;
+        
+        int countRows = 1;
+        int maxCountRows = 5;
+        int maxCountSymbols = 3;
         do {
-            sptVar = dollarsPerLine;
-            do {
-                System.out.print("$");
-                sptVar--;
-            } while (sptVar > 0);
-            System.out.println();
-            dollarsPerLine++;
-        } while (dollarsPerLine < heightTriangle);
-        do {
-            sptVar = dollarsPerLine;
-            do {
-                System.out.print("$");
-                sptVar--;
-            } while (sptVar > 0);
-            System.out.println();
-            dollarsPerLine--;
-        } while (dollarsPerLine > 0);
+            if(countRows <= 3) {
+                System.out.printf("%1." + countRows + "s\n", "$$$");
+            } else {
+                maxCountSymbols--;
+                System.out.printf("%1." + maxCountSymbols + "s\n", "$$$");
+            }
+            countRows++;
+        } while(countRows <= maxCountRows);
 
         System.out.println("\n\n7.Отображение ASCII-символов\n");
         System.out.printf("%7s%10s\n", "DECIMAL", "CHARACTER");
@@ -150,8 +138,10 @@ public class CyclesTheme {
         System.out.println("\n\n8.Проверка, является ли число палиндромом\n");
         int number6 = 1234321;
         int reverse = 0;
-        for (int i = 1, j = 1, k = 1000000; i <= 7; i++, j *= 10, k /= 10) {
-            reverse += number6 % (j * 10) / j * k;
+        int divider = 1000000;
+        for (int i = 1, j = 1; i <= 7; i++, j *= 10) {
+            reverse += number6 % (j * 10) / j * divider;
+            divider /= 10;
         }
         if (number6 == reverse) {
             System.out.println("Число " + number6 + " является палиндромом");
@@ -161,18 +151,18 @@ public class CyclesTheme {
 
         System.out.println("\n\n9.Определение, является ли число счастливым\n");
         int luckyNumber = 123321;
-        int sumFirstHalfDigits = 0;
-        int sumSecondHalfDigits = 0;
+        int right = 0;
+        int left = 0;
         for (int i = 1, j = 1; i <= 6; i++, j *= 10) {
             if (i < 4) {
-                sumFirstHalfDigits += luckyNumber % (j * 10) / j;
+                right += luckyNumber % (j * 10) / j;
             } else {
-                sumSecondHalfDigits += luckyNumber % (j * 10) / j;
+                left += luckyNumber % (j * 10) / j;
             }
         }
-        System.out.println("Сумма цифр " + luckyNumber % 1000 + " = " + sumFirstHalfDigits);
-        System.out.println("Сумма цифр " + luckyNumber / 1000 + " = " + sumSecondHalfDigits);
-        if (sumFirstHalfDigits == sumSecondHalfDigits) {
+        System.out.println("Сумма цифр " + luckyNumber % 1000 + " = " + right);
+        System.out.println("Сумма цифр " + luckyNumber / 1000 + " = " + left);
+        if (right == left) {
             System.out.println("Число " + luckyNumber + " счастливое");
         } else {
             System.out.println("Число " + luckyNumber + " несчастливое");
@@ -181,24 +171,23 @@ public class CyclesTheme {
         System.out.println("\n\n10.Вывод таблицы умножения Пифагора\n");
         int column = 10;
         int row = 10;
-        for (int i = 1; i < column; i++) {
+        System.out.printf("%3s%2c", "", '|');
+        for (int i = 2; i < column; i++) {
+            System.out.printf("%3d", i);
+        }
+        System.out.println();
+        for (int i = 1; i < column * 3; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+        for (int i = 2; i < column; i++) {
             for (int j = 1; j < row; j++) {
                 if (j == 2) {
                     System.out.print(" |");
                 }
-                if (i * j > 1) {
-                    System.out.printf("%3d", i * j);
-                } else {
-                    System.out.printf("%3s", "");
-                }
+                System.out.printf("%3d", i * j);
             }
-            if (i == 1) {
-                System.out.println("");
-                for (int k = 1; k < column * 3; k++) {
-                    System.out.print("-");
-                }
-            }
-            System.out.println("");
+            System.out.println();
         }
     }
 }
