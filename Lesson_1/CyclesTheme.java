@@ -154,11 +154,13 @@ public class CyclesTheme {
         int luckyNumber = 123321;
         int right = 0;
         int left = 0;
+        int calculation2 = 0;
         for (int i = 1, j = 1; i <= 6; i++, j *= 10) {
+            calculation2 = luckyNumber % (j * 10) / j;
             if (i < 4) {
-                right += luckyNumber % (j * 10) / j;
+                right += calculation;
             } else {
-                left += luckyNumber % (j * 10) / j;
+                left += calculation;
             }
         }
         System.out.println("Сумма цифр " + luckyNumber % 1000 + " = " + right);

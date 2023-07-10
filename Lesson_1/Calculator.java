@@ -1,28 +1,29 @@
 public class Calculator {
 
     public static void main(String[] args) {
-        int firstNum = 2;
-        int secondNum = 3;
-        char sign = '^';
+        int num1 = 2;
+        int num2 = 3;
+        char sign = ')';
         int result = 0;
         if (sign == '+') {
-            result = firstNum + secondNum;
+            result = num1 + num2;
         } else if (sign == '-') {
-            result = firstNum - secondNum;
+            result = num1 - num2;
         } else if (sign == '*') {
-            result = firstNum * secondNum;
+            result = num1 * num2;
         } else if (sign == '/') {
-            result = firstNum / secondNum;
+            result = num1 / num2;
         } else if (sign == '%') {
-            result = firstNum % secondNum;
+            result = num1 % num2;
         } else if (sign == '^') {
             result = 1;
-            for (int i = 0; i < secondNum; i++) {
-                result *= firstNum;
+            for (int i = 0; i < num2; i++) {
+                result *= num1;
             }
         } else {
             System.out.println("Несуществующий математический знак");
+            return;
         }
-        System.out.println(firstNum + " " + sign + " " + secondNum + " = " + result);
+        System.out.println(num1 + " " + sign + " " + num2 + " = " + result);
     }
 }
