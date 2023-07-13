@@ -14,3 +14,7 @@
     + [Калькулятор](https://github.com/OEMG/StartJava/blob/main/Lesson_1/Calculator.java)
 
     + [Игра “Угадай число”](https://github.com/OEMG/StartJava/blob/main/Lesson_1/MyFirstGame.java)
+
++ **Lesson_2**
+
+  + [Класс Person и его методы](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Person.java)

@@ -6,7 +6,7 @@ public class Person {
     double weight = 93.5;
 
     void showInfo() {
-        System.out.println("I'm a " + gender + "\nMy name is " name + "\nMy age is " + age + 
+        System.out.println("I'm a " + gender + "\nMy name is " + name + "\nMy age is " + age + 
                 "\nmy weight is " + weight);
     }
 
