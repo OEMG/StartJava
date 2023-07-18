@@ -5,11 +5,6 @@ public class Person {
     int age = 31;
     double weight = 93.5;
 
-    void showInfo() {
-        System.out.println("I'm a " + gender + "\nMy name is " + name + "\nMy age is " + age + 
-                "\nmy weight is " + weight);
-    }
-
     void wakeUp() {
         System.out.println(name + " wakes up");
     }
@@ -18,7 +13,7 @@ public class Person {
         System.out.println(name + " is going to work");
     }
 
-    void work() {
+    void doWork() {
         System.out.println(name + " is working");
     }
 
@@ -28,5 +23,10 @@ public class Person {
 
     void sleep() {
         System.out.println(name + " falls asleep");
+    }
+
+    void showInfo() {
+        System.out.println("I'm a " + gender + "\nMy name is " + name + "\nMy age is " + age + 
+                "\nmy weight is " + weight);
     }
 }
