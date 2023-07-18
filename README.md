@@ -18,3 +18,9 @@
 + **Lesson_2**
 
   + [Класс Person и его методы](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Person.java)
+
+  + [Класс Wolf и его методы](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Wolf.java)
+
+  + [Создание объекта класса Wolf](https://github.com/OEMG/StartJava/blob/main/Lesson_2/WolfTest.java)
+
+
