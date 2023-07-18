@@ -7,8 +7,8 @@ public class WolfTest {
         wolf.weight = 35.4;
         wolf.age = 5;
         wolf.color = "Grey";
-        System.out.println(wolf.gender + "\n" + wolf.name + "\n" + wolf.weight + "\n" +
-                wolf.age + "\n" + wolf.color);
+        System.out.println("Gender: " + wolf.gender + "\nName: " + wolf.name + "\nWeight: " +
+                wolf.weight + "\nAge: " + wolf.age + "\nColor: " + wolf.color);
         wolf.go();
         wolf.sit();
         wolf.run();
