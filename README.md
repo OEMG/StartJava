@@ -17,10 +17,23 @@
 
 + **Lesson_2**
 
-  + [Класс Person и его методы](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Person.java)
+  + [Person.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Person.java)
 
-  + [Класс Wolf и его методы](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Wolf.java)
+  + [Wolf.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Wolf.java)
 
-  + [Создание объекта класса Wolf](https://github.com/OEMG/StartJava/blob/main/Lesson_2/WolfTest.java)
+  + [WolfTest.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/WolfTest.java)
 
+  + [Calculator.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Calculator.java)
+
+  + [CalculatorTest.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/CalculatorTest.java)
+
+  + [Jaeger.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Jaeger.java)
+
+  + [JaegerTest.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/JaegerTest.java)
+
+  + [Player.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/Player.java)
+
+  + [GuessNumber.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/GuessNumber.java)
+
+  + [GuessNumberTest.java](https://github.com/OEMG/StartJava/blob/main/Lesson_2/GuessNumberTest.java)
 
