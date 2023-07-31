@@ -15,7 +15,7 @@ public class Calculator {
         this.sign = sign;
     }
 
-    public int getResult() {
+    public int calculate() {
         if (num2 == 0 && sign == '/') {
             System.out.println("Делить на ноль нельзя");
             return 0;
