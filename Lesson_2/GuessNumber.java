@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import java.util.Scanner;
+
 public class GuessNumber {
 
     private Player player1;
@@ -11,8 +13,7 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    private boolean playerMove(Player player) {
-        Scanner scan = new Scanner(System.in);
+    private boolean playerMove(Player player, Scanner scan) {
         System.out.print(player.getName() + " введи число: ");
         player.setNumber(scan.nextInt());
         if (player.getNumber() > secretNumber) {
@@ -28,13 +29,15 @@ public class GuessNumber {
     }
 
     public void play() {
+        Scanner scan = new Scanner(System.in);
         do {
-            if (playerMove(player1)) {
+            if (playerMove(player1, scan)) {
                 break;
             }
-            if (playerMove(player2)) {
+            if (playerMove(player2, scan)) {
                 break;
             }
         } while (true);
+        scan.close();
     }
 }
