@@ -8,30 +8,15 @@ public class GuessNumberTest {
         Player player1 = new Player(scan.nextLine());
         System.out.print("Введите имя второго игрока: ");
         Player player2 = new Player(scan.nextLine());
-        boolean continueGame = false;
+        String answer;
         do {
-            int secretNumber = (int) (Math.random() * 100) + 1;
-            GuessNumber guessNumber = new GuessNumber(player1, player2, secretNumber);
+            GuessNumber guessNumber = new GuessNumber(player1, player2);
             guessNumber.play();
-            System.out.print("Хотите продолжить игру? [yes/no]: ");
-            boolean wrongAnswer;
             do {
-                switch (scan.next()) {
-                    case "yes" -> {
-                        continueGame = true;
-                        wrongAnswer = false;
-                    }
-                    case "no" -> {
-                        continueGame = false;
-                        wrongAnswer = false;
-                    }
-                    default -> {
-                        System.out.print("Хотите продолжить игру? [yes/no]: ");
-                        wrongAnswer = true;
-                    }
-                }
-            } while (wrongAnswer);
-        } while (continueGame);
+                System.out.print("Хотите продолжить игру? [yes/no]: ");
+                answer = scan.next();
+            } while (!"yes".equals(answer) && !"no".equals(answer));
+        } while ("yes".equals(answer));
         scan.close();
     }
 }

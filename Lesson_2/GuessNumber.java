@@ -4,35 +4,35 @@ public class GuessNumber {
 
     private Player player1;
     private Player player2;
-    private int secretNumber;
+    private int secretNumber = (int) (Math.random() * 100) + 1;
 
-    public GuessNumber(Player player1, Player player2, int secretNumber) {
+    public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.secretNumber = secretNumber;
     }
 
-    private void processPlayerMove(Player player) {
+    private boolean playerMove(Player player) {
         Scanner scan = new Scanner(System.in);
         System.out.print(player.getName() + " введи число: ");
         player.setNumber(scan.nextInt());
         if (player.getNumber() > secretNumber) {
             System.out.println("Число " + player.getNumber() + " больше того, что загадал компьютер");
+            return false;
         } else if (player.getNumber() < secretNumber) {
             System.out.println("Число " + player.getNumber() + " меньше того, что загадал компьютер");
+            return false;
         } else {
-            System.out.println(player.getName() + " выйграл. Компьютер закадал число: " + secretNumber);
+            System.out.println(player.getName() + " выиграл. Компьютер загадал число: " + secretNumber);
+            return true;
         }
     }
 
     public void play() {
         do {
-            processPlayerMove(player1);
-            if (player1.getNumber() == secretNumber) {
+            if (playerMove(player1)) {
                 break;
             }
-            processPlayerMove(player2);
-            if (player2.getNumber() == secretNumber) {
+            if (playerMove(player2)) {
                 break;
             }
         } while (true);
