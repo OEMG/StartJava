@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class GuessNumber {
 
     private Player player1;
@@ -13,31 +11,30 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    private boolean playerMove(Player player, Scanner scan) {
+    public void play() {
+        Scanner scan = new Scanner(System.in);
+        do {
+            if (isGuessed(player1, scan)) {
+                break;
+            }
+            if (isGuessed(player2, scan)) {
+                break;
+            }
+        } while (true);
+    }
+
+    private boolean isGuessed(Player player, Scanner scan) {
         System.out.print(player.getName() + " введи число: ");
         player.setNumber(scan.nextInt());
-        if (player.getNumber() > secretNumber) {
-            System.out.println("Число " + player.getNumber() + " больше того, что загадал компьютер");
-            return false;
-        } else if (player.getNumber() < secretNumber) {
-            System.out.println("Число " + player.getNumber() + " меньше того, что загадал компьютер");
-            return false;
+        int number = player.getNumber();
+        if (number > secretNumber) {
+            System.out.println("Число " + number + " больше того, что загадал компьютер");
+        } else if (number < secretNumber) {
+            System.out.println("Число " + number + " меньше того, что загадал компьютер");
         } else {
             System.out.println(player.getName() + " выиграл. Компьютер загадал число: " + secretNumber);
             return true;
         }
-    }
-
-    public void play() {
-        Scanner scan = new Scanner(System.in);
-        do {
-            if (playerMove(player1, scan)) {
-                break;
-            }
-            if (playerMove(player2, scan)) {
-                break;
-            }
-        } while (true);
-        scan.close();
+        return false;
     }
 }
