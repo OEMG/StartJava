@@ -1,4 +1,3 @@
 out
 .idea
-StartJava.iml
-src/com/com.iml
+*.iml
