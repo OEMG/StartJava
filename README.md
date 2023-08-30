@@ -37,9 +37,6 @@
 
   + [GuessNumberTest.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_2_3_4/guess/GuessNumberTest.java)
 
-<<<<<<< HEAD
 + **Lesson_4**
 
   + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_2_3_4/array/ArraysTheme.java)
-=======
->>>>>>> d8e0c52cbe67be8f67e21e7d5560712824477730
