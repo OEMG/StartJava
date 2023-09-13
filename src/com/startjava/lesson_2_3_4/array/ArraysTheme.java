@@ -4,60 +4,64 @@ import java.util.Arrays;
 
 public class ArraysTheme {
     public static void main(String[] args) {
-        ArraysTheme.reverseArray();
-        ArraysTheme.calculateArray();
-        ArraysTheme.removeFromArray();
-        ArraysTheme.alphabetLadder();
-        ArraysTheme.fillWithUniqueNumbers();
+        reverseArray();
+        multiplicationNumbers();
+        removeFromArray();
+        showAlphabetLadder();
+        fillWithUniqueNumbers();
     }
 
     public static void reverseArray() {
         System.out.println("1. Реверс значений массива");
-        int[] num = {1, 7, 4, 5, 2, 6, 3};
-        System.out.println("   До реверса: " + Arrays.toString(num));
-        for (int i = 0; i < num.length / 2; i++) {
-            int backIndex = num.length - i - 1;
-            int temp = num[i];
-            num[i] = num[backIndex];
-            num[backIndex] = temp;
+        int[] unsorted = {1, 7, 4, 5, 2, 6, 3};
+        System.out.println("   До реверса: " + Arrays.toString(unsorted));
+        int len = unsorted.length;
+        for (int i = 0; i < len / 2; i++) {
+            int backIndex = len - i - 1;
+            int temp = unsorted[i];
+            unsorted[i] = unsorted[backIndex];
+            unsorted[backIndex] = temp;
         }
-        System.out.println("После реверса: " + Arrays.toString(num));
+        System.out.println("После реверса: " + Arrays.toString(unsorted));
     }
 
-    public static void calculateArray() {
+    public static void multiplicationNumbers() {
         System.out.println("\n2. Произведение элементов массива");
-        int[] num = new int[10];
-        for (int i = 0; i < num.length; i++) {
-            num[i] = i;
+        int[] digits = new int[10];
+        int len = digits.length;
+        for (int i = 0; i < len; i++) {
+            digits[i] = i;
         }
         int result = 1;
-        for (int i = 1; i < num.length - 1; i++) {
-            result *= i;
-            System.out.print((num.length - 2 > i) ? (i + " * ") : (i + " = " + result));
+        for (int i = 1; i < len - 1; i++) {
+            result *= digits[i];
+            System.out.print(digits[i]);
+            System.out.print((len - 2 > i) ? (" * ") : (" = " + result));
         }
     }
 
     public static void removeFromArray() {
         System.out.println("\n\n3. Удаление элементов массива");
-        double[] num = new double[15];
-        int len = num.length;
+        double[] random = new double[15];
+        int len = random.length;
         for (int i = 0; i < len; i++) {
-            num[i] = Math.random();
+            random[i] = Math.random();
         }
-        printArray(num);
+        printArray(random);
         System.out.println();
-        int zeroCount = 0;
+        int countZero = 0;
+        double midElement = random[len / 2];
         for (int i = 0; i < len; i++) {
-            if (num[i] > num[len / 2]) {
-                num[i] = 0;
-                zeroCount++;
+            if (random[i] > midElement) {
+                random[i] = 0;
+                countZero++;
             }
         }
-        printArray(num);
-        System.out.println("\nКоличество нулей " + zeroCount);
+        printArray(random);
+        System.out.println("\nКоличество нулей " + countZero);
     }
 
-    public static void alphabetLadder() {
+    public static void showAlphabetLadder() {
         System.out.println("\n4. Вывод алфавита лесенкой");
         char[] letters = new char[26];
         int len = letters.length;
@@ -75,20 +79,20 @@ public class ArraysTheme {
 
     public static void fillWithUniqueNumbers() {
         System.out.println("\n5. Заполнение массива уникальными числами");
-        int[] num = new int[30];
-        int len = num.length;
+        int[] unique = new int[30];
+        int len = unique.length;
         //Заполняем массив и сразу проверяем на уникальность
         for (int i = 0; i < len; i++) {
             int temp = (int) (Math.random() * 40 + 60);
             boolean isDuplicate = false;
             for (int j = 0; j < i; j++) {
-                if (num[j] == temp) {
+                if (unique[j] == temp) {
                     isDuplicate = true;
                     break;
                 }
             }
             if (!isDuplicate) {
-                num[i] = temp;
+                unique[i] = temp;
             } else {
                 i--;
             }
@@ -96,16 +100,16 @@ public class ArraysTheme {
         //Сортировка пузырьком
         for (int i = 0; i < len - 1; i++) {
             for (int j = 0; j < len - i - 1; j++) {
-                if (num[j] > num[j + 1]) {
-                    int temp = num[j];
-                    num[j] = num[j + 1];
-                    num[j + 1] = temp;
+                if (unique[j] > unique[j + 1]) {
+                    int temp = unique[j];
+                    unique[j] = unique[j + 1];
+                    unique[j + 1] = temp;
                 }
             }
         }
         //Вывод по 10 значений в строке
         for (int i = 0; i < len; i++) {
-            System.out.print(num[i] + " ");
+            System.out.print(unique[i] + " ");
             if ((i + 1) % 10 == 0) {
                 System.out.println();
             }
