@@ -16,11 +16,10 @@ public class ArraysTheme {
         int[] numbers = {1, 7, 4, 5, 2, 6, 3};
         System.out.println("   До реверса: " + Arrays.toString(numbers));
         int len = numbers.length;
-        for (int i = 0; i < len / 2; i++) {
-            int backIndex = --len;
+        for (int i = 0; i <= len / 2; i++) {
             int temp = numbers[i];
-            numbers[i] = numbers[backIndex];
-            numbers[backIndex] = temp;
+            numbers[i] = numbers[--len];
+            numbers[len] = temp;
         }
         System.out.println("После реверса: " + Arrays.toString(numbers));
     }
@@ -64,7 +63,7 @@ public class ArraysTheme {
         System.out.println("\n4. Вывод алфавита лесенкой");
         char[] alphabet = new char[26];
         int len = alphabet.length;
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < len; i++) {
             alphabet[i] = (char) ('A' + i);
         }
         for (int i = len - 1; i >= 0; i--) {
