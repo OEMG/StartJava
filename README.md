@@ -40,7 +40,3 @@
 + **Lesson_4**
 
   + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_2_3_4/array/ArraysTheme.java)
-
-  + [Calculator.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_2_3_4/calculator/Calculator.java)
-
-  + [CalculatorTest.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_2_3_4/calculator/CalculatorTest.java)
