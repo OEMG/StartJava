@@ -29,22 +29,20 @@ public class Calculator {
             case '-' -> num1 - num2;
             case '*' -> num1 * num2;
             case '/' -> {
-                double result = (double) num1 / num2;
-                checkingZero(result);
-                yield result;
+                checkingZero(num2);
+                yield (double) num1 / num2;
             }
             case '%' -> {
-                double result = num1 % num2;
-                checkingZero(result);
-                yield result;
+                checkingZero(num2);
+                yield num1 % num2;
             }
             case '^' -> Math.pow(num1, num2);
             default -> throw new RuntimeException("знак " + sign + " не поддерживается");
         };
     }
 
-    private static void checkingZero(double result) {
-        if (Double.isInfinite(result)) {
+    private static void checkingZero(int number) {
+        if (number == 0) {
             throw new RuntimeException("нельзя делить на 0");
         }
     }
