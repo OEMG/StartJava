@@ -10,7 +10,7 @@ public class Calculator {
         int[] numbers = checkNumbers(components);
         int num1 = numbers[0];
         int num2 = numbers[1];
-        char sign = checkingSign(components);
+        char sign = checkSign(components);
         return switch (sign) {
             case '+' -> num1 + num2;
             case '-' -> num1 - num2;
@@ -31,7 +31,7 @@ public class Calculator {
         } catch (RuntimeException e) {
             throw new RuntimeException("введенные числа не являются целыми");
         }
-        if (num1 < 0 || num2 < 0) {
+        if (num1 <= 0 || num2 < 0) {
             throw new RuntimeException("введенные числа должны быть положительными");
         }
         if (num2 == 0) {
@@ -40,7 +40,7 @@ public class Calculator {
         return new int[]{num1, num2};
     }
 
-    private static char checkingSign(String[] components) {
+    private static char checkSign(String[] components) {
         char sign;
         try {
             sign = components[1].charAt(0);
