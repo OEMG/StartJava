@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3_4.guess;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -23,26 +24,25 @@ public class GuessNumber {
                 break;
             }
         }
-        player1.showGuesses();
-        player1.clearGuesses();
-        player2.showGuesses();
-        player2.clearGuesses();
+        showGuesses(player1);
+        clearGuesses(player1);
+        showGuesses(player2);
+        clearGuesses(player2);
     }
 
     private boolean isGuessed(Player player, Scanner scan, int secretNum) {
         String name = player.getName();
-        int count = player.getGuessesCount();
+        int count = player.getAttempt();
         System.out.print(name + " введи число: ");
-        player.setNum(scan.nextInt());
-        player.setGuesses(player.getNum());
-        player.setGuessesCount(count + 1);
-        int num = player.getNum();
+        player.setGuess(count, scan.nextInt());
+        int num = player.getGuess(count);
+        player.setAttempt(count + 1);
         if (num < secretNum) {
             System.out.println("Число " + num + " меньше того, что загадал компьютер");
-            guessingOver(player);
+            attemptsOver(player);
         } else if (num > secretNum) {
             System.out.println("Число " + num + " больше того, что загадал компьютер");
-            guessingOver(player);
+            attemptsOver(player);
         } else {
             System.out.println("Игрок " + name + " угадал " + secretNum
                     + " с " + (count + 1) + " попытки");
@@ -51,9 +51,21 @@ public class GuessNumber {
         return false;
     }
 
-    private void guessingOver(Player player) {
-        if (player.getGuessesCount() >= player.getGuessesLength()) {
+    private void attemptsOver(Player player) {
+        if (player.getAttempt() >= 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
         }
+    }
+
+    public void showGuesses(Player player) {
+        for (int i : player.getGuesses()) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public void clearGuesses(Player player) {
+        Arrays.fill(player.getGuesses(), 0, player.getAttempt(), 0);
+        player.setAttempt(0);
     }
 }

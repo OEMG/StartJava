@@ -5,9 +5,8 @@ import java.util.Arrays;
 public class Player {
 
     private String name;
-    private int num;
     private int[] guesses = new int[10];
-    private int guessesCount = 0;
+    private int attempt;
 
     public Player(String name) {
         this.name = name;
@@ -17,39 +16,23 @@ public class Player {
         return name;
     }
 
-    public int getNum() {
-        return num;
+    public int[] getGuesses() {
+        return Arrays.copyOf(guesses, attempt);
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public int getGuess(int index) {
+        return guesses[index];
     }
 
-    public void setGuesses(int i) {
-        guesses[guessesCount] = i;
+    public void setGuess(int attempt, int num) {
+        guesses[attempt] = num;
     }
 
-    public int getGuessesLength() {
-        return guesses.length;
+    public int getAttempt() {
+        return attempt;
     }
 
-    public int getGuessesCount() {
-        return guessesCount;
-    }
-
-    public void setGuessesCount(int guessesCount) {
-        this.guessesCount = guessesCount;
-    }
-
-    public void showGuesses() {
-        for(int i: Arrays.copyOf(guesses, guessesCount)){
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-
-    public void clearGuesses() {
-        Arrays.fill(guesses, 0, guessesCount, 0);
-        guessesCount = 0;
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
     }
 }
