@@ -16,23 +16,24 @@ public class Player {
         return name;
     }
 
+    public int getGuess() {
+        return guesses[attempt - 1];
+    }
+
+    public void addGuess(int num) {
+        guesses[attempt++] = num;
+    }
+
     public int[] getGuesses() {
         return Arrays.copyOf(guesses, attempt);
     }
 
-    public int getGuess(int index) {
-        return guesses[index];
-    }
-
-    public void setGuess(int attempt, int num) {
-        guesses[attempt] = num;
+    public void clearGuesses() {
+        Arrays.fill(guesses, 0, attempt, 0);
+        attempt = 0;
     }
 
     public int getAttempt() {
         return attempt;
-    }
-
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
     }
 }

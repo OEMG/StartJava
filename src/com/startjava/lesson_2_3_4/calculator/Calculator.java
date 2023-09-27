@@ -11,6 +11,7 @@ public class Calculator {
         int num1 = numbers[0];
         int num2 = numbers[1];
         char sign = checkSign(components);
+        checkDivisor(sign, num2);
         return switch (sign) {
             case '+' -> num1 + num2;
             case '-' -> num1 - num2;
@@ -34,9 +35,6 @@ public class Calculator {
         if (num1 <= 0 || num2 < 0) {
             throw new RuntimeException("введенные числа должны быть положительными");
         }
-        if (num2 == 0) {
-            throw new RuntimeException("нельзя делить на 0");
-        }
         return new int[]{num1, num2};
     }
 
@@ -48,5 +46,11 @@ public class Calculator {
             throw new RuntimeException("необходимо указать знак математической операции");
         }
         return sign;
+    }
+
+    private static void checkDivisor(char sign, int divisor) {
+        if ((sign == '/' || sign == '%') && divisor == 0) {
+            throw new RuntimeException("нельзя делить на 0");
+        }
     }
 }
