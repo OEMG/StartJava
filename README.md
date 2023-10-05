@@ -40,3 +40,11 @@
 + **Lesson_4**
 
   + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_2_3_4/array/ArraysTheme.java)
+
++ **Lesson_5**
+
+  + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/create_db.sql)
+  
+  + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/init_db.sql)
+  
+  + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/queries.sql)
