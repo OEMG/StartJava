@@ -43,8 +43,8 @@
 
 + **Lesson_5**
 
-  + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/create_db.sql)
+  + [create_db.sql](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/create_db.sql)
   
-  + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/init_db.sql)
+  + [init_db.sql](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/init_db.sql)
   
-  + [ArraysTheme.java](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/queries.sql)
+  + [queries.sql](https://github.com/OEMG/StartJava/blob/main/src/com/startjava/lesson_5/queries.sql)
