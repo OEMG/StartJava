@@ -3,10 +3,13 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Arrays;
 
 public class Player {
-
-    private String name;
-    private int[] guesses = new int[10];
+    public static final int MAX_ATTEMPTS = 10;
+    public static final int MIN_NUMBER = 0;
+    public static final int MAX_NUMBER = 100;
+    private final String name;
+    private final int[] guesses = new int[MAX_ATTEMPTS];
     private int attempt;
+    private int win;
 
     public Player(String name) {
         this.name = name;
@@ -21,7 +24,12 @@ public class Player {
     }
 
     public void addGuess(int num) {
-        guesses[attempt++] = num;
+        if (num > MIN_NUMBER && num <= MAX_NUMBER) {
+            guesses[attempt++] = num;
+        } else {
+            throw new RuntimeException("Ошибка: число должно находиться в полуинтервале (0, 100]\n" +
+                    getName() + " введи число: ");
+        }
     }
 
     public int[] getGuesses() {
@@ -35,5 +43,17 @@ public class Player {
 
     public int getAttempt() {
         return attempt;
+    }
+
+    public void setWin() {
+        win = win + 1;
+    }
+
+    public int getWin() {
+        return win;
+    }
+
+    public void clearWin() {
+        win = 0;
     }
 }
