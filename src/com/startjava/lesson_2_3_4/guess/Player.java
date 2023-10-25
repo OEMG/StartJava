@@ -1,11 +1,11 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
+import static com.startjava.lesson_2_3_4.guess.GuessNumber.MAX_NUMBER;
+import static com.startjava.lesson_2_3_4.guess.GuessNumber.MIN_NUMBER;
 
 public class Player {
     public static final int MAX_ATTEMPTS = 10;
-    public static final int MIN_NUMBER = 0;
-    public static final int MAX_NUMBER = 100;
     private final String name;
     private final int[] guesses = new int[MAX_ATTEMPTS];
     private int attempt;
