@@ -4,7 +4,6 @@ import java.util.Scanner;
 import static com.startjava.lesson_2_3_4.guess.GuessNumber.PLAYER_COUNT;
 
 public class GuessNumberTest {
-    public static final int PLAYER_COUNT = 3;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
