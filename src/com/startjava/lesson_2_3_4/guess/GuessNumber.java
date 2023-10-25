@@ -1,6 +1,7 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Scanner;
+<<<<<<< HEAD
 import static com.startjava.lesson_2_3_4.guess.Player.MAX_ATTEMPTS;
 
 public class GuessNumber {
@@ -8,6 +9,14 @@ public class GuessNumber {
     public static final int ROUND_COUNT = 3;
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 100;
+=======
+import static com.startjava.lesson_2_3_4.guess.GuessNumberTest.PLAYER_COUNT;
+import static com.startjava.lesson_2_3_4.guess.Player.MAX_NUMBER;
+import static com.startjava.lesson_2_3_4.guess.Player.MAX_ATTEMPTS;
+
+public class GuessNumber {
+    public static final int ROUND_COUNT = 3;
+>>>>>>> ee5b91976f2be6a18d863ae4ad8e4b1d3ca10993
     private final Player[] players = new Player[PLAYER_COUNT];
     private int secretNum;
 
@@ -22,7 +31,10 @@ public class GuessNumber {
         for (int i = 0; i < ROUND_COUNT; i++) {
             System.out.println("\n" + (i + 1) + " раунд");
             secretNum = (int) (Math.random() * MAX_NUMBER) + 1;
+<<<<<<< HEAD
             System.out.println(secretNum);
+=======
+>>>>>>> ee5b91976f2be6a18d863ae4ad8e4b1d3ca10993
             startRound(players);
             endRound(players);
         }
@@ -91,6 +103,10 @@ public class GuessNumber {
 
     private void endRound(Player[] players) {
         for (Player player : players) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ee5b91976f2be6a18d863ae4ad8e4b1d3ca10993
             showGuesses(player);
             player.clearGuesses();
         }
@@ -105,14 +121,20 @@ public class GuessNumber {
     }
 
     private void getWinner(Player[] players) {
+<<<<<<< HEAD
         String winner = null;
         int maxWins = -1;
         boolean tie = false;
+=======
+        int maxWins = -1;
+        String winner = null;
+>>>>>>> ee5b91976f2be6a18d863ae4ad8e4b1d3ca10993
         for (Player player : players) {
             int playerWins = player.getWin();
             if (playerWins > maxWins) {
                 maxWins = playerWins;
                 winner = player.getName();
+<<<<<<< HEAD
                 tie = false;
             } else if (playerWins == maxWins) {
                 tie = true;
@@ -123,6 +145,14 @@ public class GuessNumber {
         } else {
             System.out.println(winner + " победил!");
         }
+=======
+            } else if (playerWins == maxWins) {
+                System.out.println("У игроков ничья");
+                return;
+            }
+        }
+        System.out.println(winner + " победил!");
+>>>>>>> ee5b91976f2be6a18d863ae4ad8e4b1d3ca10993
     }
 
     private void clearWins(Player[] players) {

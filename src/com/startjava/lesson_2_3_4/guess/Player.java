@@ -6,6 +6,11 @@ import static com.startjava.lesson_2_3_4.guess.GuessNumber.MIN_NUMBER;
 
 public class Player {
     public static final int MAX_ATTEMPTS = 10;
+<<<<<<< HEAD
+=======
+    public static final int MIN_NUMBER = 0;
+    public static final int MAX_NUMBER = 100;
+>>>>>>> ee5b91976f2be6a18d863ae4ad8e4b1d3ca10993
     private final String name;
     private final int[] guesses = new int[MAX_ATTEMPTS];
     private int attempt;
