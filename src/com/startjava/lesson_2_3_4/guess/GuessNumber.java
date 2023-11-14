@@ -3,23 +3,23 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumber {
-    public static final int PLAYER_COUNT = 3;
-    public static final int ROUND_COUNT = 3;
+    public static final int PLAYERS_COUNT = 3;
+    public static final int ROUNDS_COUNT = 3;
     public static final int MIN_NUMBER = 1;
     public static final int MAX_NUMBER = 100;
-    private final Player[] players = new Player[PLAYER_COUNT];
+    private final Player[] players = new Player[PLAYERS_COUNT];
     private int secretNum;
     private final Scanner scan = new Scanner(System.in);
 
     public GuessNumber(String... name) {
-        for (int i = 0; i < PLAYER_COUNT; i++) {
+        for (int i = 0; i < PLAYERS_COUNT; i++) {
             players[i] = new Player(name[i]);
         }
     }
 
     public void play() {
         shuffle();
-        for (int i = 0; i < ROUND_COUNT; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
             System.out.println("\n" + (i + 1) + " раунд");
             secretNum = (int) (Math.random() * MAX_NUMBER) + 1;
             startRound();
@@ -30,7 +30,7 @@ public class GuessNumber {
     }
 
     private void shuffle() {
-        for (int i = PLAYER_COUNT - 1; i > 0; i--) {
+        for (int i = PLAYERS_COUNT - 1; i > 0; i--) {
             int index = (int) (Math.random() * (i + 1));
             Player temp = players[i];
             players[i] = players[index];

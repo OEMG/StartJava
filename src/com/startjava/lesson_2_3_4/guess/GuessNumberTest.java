@@ -6,7 +6,7 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String[] names = new String[GuessNumber.PLAYER_COUNT];
+        String[] names = new String[GuessNumber.PLAYERS_COUNT];
         GuessNumber game = new GuessNumber(inputPlayers(names, scan));
         System.out.println("Игра началась! В каждом раунде игроку дается по 10 попыток.\n" +
                 "Победитель определится по результату трех раундов");
@@ -21,7 +21,7 @@ public class GuessNumberTest {
     }
 
     private static String[] inputPlayers(String[] names, Scanner scan) {
-        for (int i = 0; i < GuessNumber.PLAYER_COUNT; i++) {
+        for (int i = 0; i < GuessNumber.PLAYERS_COUNT; i++) {
             System.out.print("Введите имя " + (i + 1) + "-го игрока: ");
             names[i] = scan.nextLine();
         }
