@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Bookshelf {
 
-    private static final int NUM_BOOKS = 10;
-    private final Book[] books = new Book[NUM_BOOKS];
+    private static final int BOOKS_NUM = 10;
+    private final Book[] books = new Book[BOOKS_NUM];
     private int bookCount;
     private int maxLength;
 
@@ -21,21 +21,20 @@ public class Bookshelf {
         return maxLength;
     }
 
-    public int getAvailableShelves() {
-        return NUM_BOOKS - bookCount;
+    public int getFreeShelves() {
+        return BOOKS_NUM - bookCount;
     }
 
     public void add(Book book) {
-        if (bookCount == NUM_BOOKS) {
+        if (bookCount >= BOOKS_NUM) {
             System.out.println("\nКнига не сохранена. Место на полках закончилось.");
             return;
         }
-        books[bookCount] = book;
-        int length = book.getLengthDesc();
+        books[bookCount++] = book;
+        int length = book.getLength();
         if (length > maxLength) {
             maxLength = length;
         }
-        bookCount++;
         System.out.println("\nКнига добавлена.");
     }
 
@@ -51,22 +50,23 @@ public class Bookshelf {
     public void delete(String title) {
         for (int i = 0; i < bookCount; i++) {
             if (books[i].getTitle().equals(title)) {
+                calcMaxLength(books[i].getLength());
                 bookCount--;
                 System.arraycopy(books, i + 1, books, i, bookCount - i);
+                books[bookCount] = null;
                 System.out.println("\nКнига удалена.");
-                checkLength(books[i].getLengthDesc());
                 return;
             }
         }
         System.out.println("\nКнига не найдена");
     }
 
-    public void checkLength(int bookLength) {
-        if (bookLength == maxLength) {
+    private void calcMaxLength(int length) {
+        if (length == maxLength) {
             maxLength = -1;
             for (int i = 0; i < bookCount; i++) {
-                if (books[i].getLengthDesc() > maxLength) {
-                    maxLength = books[i].getLengthDesc();
+                if (books[i].getLength() > maxLength) {
+                    maxLength = books[i].getLength();
                 }
             }
         }
@@ -75,6 +75,6 @@ public class Bookshelf {
     public void clear() {
         Arrays.fill(books, 0, bookCount, null);
         bookCount = 0;
-        System.out.println("Шкаф очищен.");
+        System.out.println("\nШкаф очищен.");
     }
 }
