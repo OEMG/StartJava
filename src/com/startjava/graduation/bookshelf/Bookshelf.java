@@ -10,7 +10,7 @@ public class Bookshelf {
     private int maxLength;
 
     public Book[] getBooks() {
-        return books;
+        return Arrays.copyOf(books, bookCount);
     }
 
     public int getBookCount() {
@@ -50,9 +50,9 @@ public class Bookshelf {
     public void delete(String title) {
         for (int i = 0; i < bookCount; i++) {
             if (books[i].getTitle().equals(title)) {
-                calcMaxLength(books[i].getLength());
                 bookCount--;
                 System.arraycopy(books, i + 1, books, i, bookCount - i);
+                calcMaxLength(books[i].getLength());
                 books[bookCount] = null;
                 System.out.println("\nКнига удалена.");
                 return;
@@ -75,6 +75,5 @@ public class Bookshelf {
     public void clear() {
         Arrays.fill(books, 0, bookCount, null);
         bookCount = 0;
-        System.out.println("\nШкаф очищен.");
     }
 }

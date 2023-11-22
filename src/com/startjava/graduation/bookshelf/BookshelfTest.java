@@ -18,7 +18,7 @@ public class BookshelfTest {
                 System.out.println("\nОшибка: " + e.getMessage());
             }
             System.out.print("\nДля продолжения нажмите Enter");
-            new Scanner(System.in).nextLine();
+            scan.nextLine();
         }
         scan.close();
     }
@@ -31,8 +31,8 @@ public class BookshelfTest {
             System.out.println("\nВ шкафу книг - " + bookCount + ", свободно полок - " + bs.getFreeShelves());
             int maxLength = bs.getMaxLength();
             Book[] books = bs.getBooks();
-            for (int i = 0; i < bookCount; i++) {
-                System.out.print("\n|" + books[i] + " ".repeat(maxLength - books[i].getLength()) +
+            for (Book book : books) {
+                System.out.print("\n|" + book + " ".repeat(maxLength - book.getLength()) +
                         "|\n|" + "-".repeat(maxLength) + "|");
             }
             System.out.println("\n|" + " ".repeat(maxLength) + "|\n");
@@ -51,44 +51,45 @@ public class BookshelfTest {
     }
 
     private static void launchMenu() {
-        switch (checkNum()) {
+        switch (scan.nextInt()) {
             case 1 -> addBook();
             case 2 -> findBook();
             case 3 -> deleteBook();
-            case 4 -> bs.clear();
+            case 4 -> clearBookshelf();
             case 5 -> finished = true;
             default -> throw new RuntimeException("Команда не поддерживается. Повторите попытку");
         }
     }
 
-    private static int checkNum() {
-        try {
-            return scan.nextInt();
-        } catch (Exception e) {
-            throw new RuntimeException("введите целое число");
-        }
-    }
-
     private static void addBook() {
-        scan = new Scanner(System.in);
+        scan.nextLine();
         System.out.print("\nВведите автора книги: ");
         String author = scan.nextLine();
         System.out.print("Введите название книги: ");
         String title = scan.nextLine();
         System.out.print("Введите год издания: ");
-        int year = checkNum();
+        int year = scan.nextInt();
+        scan.nextLine();
         Book book = new Book(author, title, year);
         bs.add(book);
     }
 
     private static void findBook() {
         System.out.print("\nВведите название искомой книги: ");
-        Book book = bs.find(new Scanner(System.in).nextLine());
+        scan.nextLine();
+        Book book = bs.find(scan.nextLine());
         System.out.println(book != null ? book : "\nКнига не найдена");
     }
 
     private static void deleteBook() {
         System.out.print("\nВведите название удаляемой книги: ");
-        bs.delete(new Scanner(System.in).nextLine());
+        scan.nextLine();
+        bs.delete(scan.nextLine());
+    }
+
+    private static void clearBookshelf() {
+        bs.clear();
+        System.out.println("\nШкаф очищен.");
+        scan.nextLine();
     }
 }
